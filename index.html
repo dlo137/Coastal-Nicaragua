@@ -1,0 +1,742 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Coastal Curator — Nicaragua Surf Tourism</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Epilogue:wght@400;700;800;900&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Material Symbols Outlined -->
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#00263f',
+            'primary-container': '#0b3c5d',
+            secondary: '#006689',
+            'secondary-container': '#6eceff',
+            'secondary-fixed': '#c2e8ff',
+            'on-secondary-fixed': '#001e2c',
+            'tertiary-fixed-dim': '#7ed99e',
+            'on-tertiary-fixed': '#00210f',
+            surface: '#fcf9f8',
+            'surface-container-low': '#f6f3f2',
+            'surface-container': '#f0eded',
+            'surface-container-high': '#eae7e7',
+            'surface-container-highest': '#e4e2e1',
+            'surface-container-lowest': '#ffffff',
+            'on-surface': '#1b1c1c',
+            'on-surface-variant': '#42474e',
+            'outline-variant': '#c2c7ce',
+          },
+          fontFamily: {
+            headline: ['Epilogue', 'sans-serif'],
+            body: ['Manrope', 'sans-serif'],
+            label: ['Manrope', 'sans-serif'],
+          },
+          borderRadius: {
+            DEFAULT: '0.125rem',
+            lg: '0.25rem',
+            xl: '0.5rem',
+            full: '0.75rem',
+          },
+        },
+      },
+    };
+  </script>
+
+  <style>
+    .glass-nav {
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+    }
+    .hero-gradient {
+      background: linear-gradient(to bottom, rgba(0,38,63,0.4), rgba(0,38,63,0.8));
+    }
+
+    /* Staggered fade-up for hero content */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(28px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .anim-fade-up {
+      opacity: 0;
+      animation: fadeUp 0.75s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+    }
+    .anim-delay-1 { animation-delay: 0.1s; }
+    .anim-delay-2 { animation-delay: 0.28s; }
+    .anim-delay-3 { animation-delay: 0.46s; }
+    .anim-delay-4 { animation-delay: 0.62s; }
+
+    /* Slow horizontal scroll on the hero background */
+    @keyframes slowDrift {
+      from { transform: scale(1.08) translateX(0); }
+      to   { transform: scale(1.08) translateX(-3%); }
+    }
+    .hero-img {
+      animation: slowDrift 18s ease-in-out alternate infinite;
+    }
+
+    /* Animated wave path at the bottom of the hero */
+    @keyframes waveSway {
+      0%, 100% { d: path("M0,32 C240,80 480,0 720,40 C960,80 1200,10 1440,48 L1440,80 L0,80 Z"); }
+      50%       { d: path("M0,48 C240,10 480,72 720,28 C960,0 1200,64 1440,32 L1440,80 L0,80 Z"); }
+    }
+    .wave-path {
+      animation: waveSway 7s ease-in-out infinite;
+    }
+  </style>
+</head>
+<body class="bg-surface text-on-surface font-body selection:bg-secondary-container selection:text-on-secondary-fixed">
+
+  <!-- Navigation -->
+  <header class="glass-nav fixed top-0 left-0 right-0 z-50 bg-primary/80 border-b border-white/10">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+      <a href="#" class="flex items-center gap-2">
+        <span class="material-symbols-outlined text-secondary-container text-3xl">waves</span>
+        <span class="font-headline font-900 text-xl text-white tracking-tight">Coastal Nicaragua</span>
+      </a>
+      <nav class="hidden md:flex items-center gap-8">
+        <a href="index.html" class="font-label font-500 text-sm text-white border-b-2 border-sky-700 pb-1 transition-colors">Home</a>
+        <a href="packages.html" class="font-label font-500 text-sm text-secondary-fixed hover:text-white transition-colors">Tour Packages</a>
+        <a href="destinations.html" class="font-label font-500 text-sm text-secondary-fixed hover:text-white transition-colors">Destinations</a>
+        <a href="about.html" class="font-label font-500 text-sm text-secondary-fixed hover:text-white transition-colors">About Us</a>
+        <a href="contact.html" class="font-label font-500 text-sm text-secondary-fixed hover:text-white transition-colors">Contact</a>
+      </nav>
+      <a href="contact.html" class="hidden md:inline-flex items-center gap-2 bg-secondary-container text-on-secondary-fixed font-label font-700 text-sm px-5 py-2.5 rounded-full hover:bg-secondary-fixed transition-colors">
+        <span class="material-symbols-outlined text-base">surfing</span>
+        Book a Trip
+      </a>
+      <button class="md:hidden text-white">
+        <span class="material-symbols-outlined">menu</span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="relative min-h-screen overflow-hidden">
+    <!-- Background image -->
+    <img
+      src="https://images.unsplash.com/photo-1505118380757-91f5f5632de0?w=1600"
+      alt="Nicaragua coastline"
+      class="absolute inset-0 w-full h-full object-cover hero-img"
+    />
+    <!-- Hero gradient overlay -->
+    <div class="hero-gradient absolute inset-0"></div>
+
+    <!-- Content -->
+    <div class="relative z-10 max-w-7xl mx-auto px-6 pt-20 pb-24 min-h-screen flex items-center">
+      <div class="grid md:grid-cols-12 gap-8 w-full">
+        <div class="md:col-span-7 flex flex-col justify-center">
+
+          <!-- Badge -->
+          <span class="anim-fade-up anim-delay-1 inline-block self-start bg-tertiary-fixed-dim text-on-tertiary-fixed text-xs font-bold tracking-widest uppercase px-4 py-1.5 rounded-full mb-8">
+            EPICENTER OF ADVENTURE
+          </span>
+
+          <!-- Headline -->
+          <h1 class="anim-fade-up anim-delay-2 font-headline font-black text-white text-5xl sm:text-6xl md:text-7xl lg:text-8xl leading-[0.9] tracking-tight mb-8">
+            CURATE YOUR<br />
+            <span class="text-secondary-container">COASTAL</span> ESCAPE.
+          </h1>
+
+          <!-- Subtext -->
+          <p class="anim-fade-up anim-delay-3 text-xl text-white/90 max-w-xl font-light leading-relaxed mb-10">
+            Nicaragua, known for its uncrowded waves, great weather, and cheap beer. From beginner-friendly beaches to advanced reef breaks, there are plenty of options to choose from.
+          </p>
+
+          <!-- CTAs -->
+          <div class="anim-fade-up anim-delay-4 flex gap-4 flex-wrap">
+            <a href="#destinations" class="inline-flex items-center gap-2 bg-secondary-container text-on-secondary-fixed font-headline font-bold text-lg px-8 py-4 rounded-lg hover:brightness-105 transition-all">
+              Start Exploring
+              <span class="material-symbols-outlined">arrow_forward</span>
+            </a>
+            <a href="#destinations" class="inline-flex items-center gap-2 bg-transparent text-white border border-white font-headline font-bold text-lg px-8 py-4 rounded-lg hover:bg-white/10 transition-colors">
+              View Spots
+            </a>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- Animated wave divider -->
+    <div class="absolute bottom-0 left-0 right-0 z-10 leading-none">
+      <svg viewBox="0 0 1440 80" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" class="w-full h-16 md:h-20">
+        <path class="wave-path" d="M0,32 C240,80 480,0 720,40 C960,80 1200,10 1440,48 L1440,80 L0,80 Z" fill="#fcf9f8" />
+      </svg>
+    </div>
+  </section>
+
+  <!-- Legendary Breaks -->
+  <section id="destinations" class="bg-surface py-24">
+    <div class="max-w-7xl mx-auto px-6">
+
+      <!-- Header row -->
+      <div class="flex justify-between items-end mb-12">
+        <div>
+          <h2 class="font-headline font-black text-4xl md:text-5xl text-primary tracking-tighter leading-tight">LEGENDARY BREAKS</h2>
+          <p class="font-body text-on-surface-variant text-lg max-w-md mt-3 leading-relaxed">Nicaragua's Pacific coast dishes up world-class waves for every level — from mellow beach breaks to slab-heavy reef monsters.</p>
+        </div>
+        <a href="#" class="hidden md:inline-block font-headline font-bold text-sm text-primary uppercase tracking-widest hover:text-secondary transition-colors shrink-0 ml-8">ALL DESTINATIONS →</a>
+      </div>
+
+      <!-- Bento grid -->
+      <div class="grid grid-cols-12 gap-4 min-h-[600px]">
+
+        <!-- Card 1 — Large hero card -->
+        <div class="col-span-12 md:col-span-5 relative overflow-hidden rounded-xl group">
+          <img
+            src="https://images.unsplash.com/photo-1455729552865-3658a5d39692?w=900&auto=format&fit=crop"
+            alt="Popoyo Outer Reef"
+            loading="lazy"
+            class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+          />
+          <div class="absolute inset-0 bg-gradient-to-t from-primary/80 via-primary/20 to-transparent"></div>
+          <div class="absolute bottom-0 left-0 right-0 p-7">
+            <h3 class="font-headline font-bold text-white text-2xl mb-2">POPOYO OUTER REEF</h3>
+            <p class="text-white/80 text-sm leading-relaxed mb-4">A fearsome right-hander that detonates over a shallow reef. When the swell hits, this is one of Central America's heaviest waves.</p>
+            <div class="flex gap-2 flex-wrap">
+              <span class="bg-secondary-fixed/20 text-white text-xs rounded-full px-3 py-1 backdrop-blur-sm border border-white/20">Advanced</span>
+              <span class="bg-secondary-fixed/20 text-white text-xs rounded-full px-3 py-1 backdrop-blur-sm border border-white/20">Heavy Barrel</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 2 — Text card -->
+        <div class="col-span-12 md:col-span-3 bg-surface-container-lowest rounded-xl p-8 flex flex-col justify-between border border-outline-variant/30">
+          <div>
+            <span class="inline-block bg-secondary-fixed text-on-secondary-fixed font-label font-600 text-xs px-3 py-1 rounded-full mb-6">Beginner-Friendly</span>
+            <h3 class="font-headline font-bold text-primary text-xl mb-3">PLAYA MADERAS</h3>
+            <p class="font-body text-on-surface-variant text-sm leading-relaxed">A picture-perfect beach break tucked inside a jungle-backed cove near San Juan del Sur. Forgiving walls and a mellow crowd make it the ideal intro to Nicaraguan surf.</p>
+          </div>
+          <div class="mt-8">
+            <div class="flex items-center gap-3 text-on-surface-variant text-xs font-label mb-1">
+              <span class="material-symbols-outlined text-sm">waves</span> 2–5ft avg.
+            </div>
+            <div class="flex items-center gap-3 text-on-surface-variant text-xs font-label mb-6">
+              <span class="material-symbols-outlined text-sm">wb_sunny</span> Year-round
+            </div>
+            <a href="#" class="font-headline font-bold text-sm text-secondary tracking-widest uppercase hover:text-primary transition-colors">EXPLORE →</a>
+          </div>
+        </div>
+
+        <!-- Card 3 — Small image card -->
+        <div class="col-span-6 md:col-span-2 relative overflow-hidden rounded-xl group">
+          <img
+            src="https://images.unsplash.com/photo-1502680390469-be75c86b636f?w=600&auto=format&fit=crop"
+            alt="San Juan del Sur"
+            loading="lazy"
+            class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+          />
+          <div class="absolute inset-0 bg-gradient-to-t from-primary/80 via-transparent to-transparent"></div>
+          <div class="absolute bottom-0 left-0 p-5">
+            <p class="font-headline font-bold text-white text-sm leading-tight">SAN JUAN DEL SUR</p>
+            <p class="text-white/70 text-xs mt-1">All levels</p>
+          </div>
+        </div>
+
+        <!-- Card 4 — Small image card -->
+        <div class="col-span-6 md:col-span-2 relative overflow-hidden rounded-xl group">
+          <img
+            src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=600&auto=format&fit=crop"
+            alt="Santana"
+            loading="lazy"
+            class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+          />
+          <div class="absolute inset-0 bg-gradient-to-t from-primary/80 via-transparent to-transparent"></div>
+          <div class="absolute bottom-0 left-0 p-5">
+            <p class="font-headline font-bold text-white text-sm leading-tight">SANTANA</p>
+            <p class="text-white/70 text-xs mt-1">Intermediate</p>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Mobile "All Destinations" link -->
+      <div class="mt-8 md:hidden">
+        <a href="#" class="font-headline font-bold text-sm text-primary uppercase tracking-widest">ALL DESTINATIONS →</a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Tour Packages -->
+  <section class="bg-surface-container-low py-24 overflow-hidden">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="grid lg:grid-cols-2 gap-16 items-center">
+
+        <!-- LEFT — Staggered image collage -->
+        <div class="order-2 lg:order-1 relative">
+          <div class="grid grid-cols-2 gap-4 relative">
+            <!-- Image 1 — offset down -->
+            <div class="pt-12">
+              <img
+                src="https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=700&auto=format&fit=crop"
+                alt="Yoga on the beach"
+                loading="lazy"
+                class="w-full h-80 object-cover rounded-xl shadow-2xl"
+              />
+            </div>
+            <!-- Image 2 — no offset -->
+            <div>
+              <img
+                src="https://images.unsplash.com/photo-1531722569936-825d4ecd6812?w=700&auto=format&fit=crop"
+                alt="Surf lesson"
+                loading="lazy"
+                class="w-full h-80 object-cover rounded-xl shadow-2xl"
+              />
+            </div>
+          </div>
+          <!-- Decorative blur blob -->
+          <div class="absolute -z-10 -bottom-12 -left-12 w-64 h-64 bg-secondary-container/20 rounded-full blur-3xl"></div>
+        </div>
+
+        <!-- RIGHT — Label, heading, package cards -->
+        <div class="order-1 lg:order-2">
+          <p class="font-body font-bold tracking-[0.2em] uppercase text-sm text-secondary mb-4">TAILORED EXPERIENCES</p>
+          <h2 class="font-headline font-black text-4xl md:text-5xl text-primary leading-tight mb-8">IMMERSE YOURSELF IN THE PACIFIC FLOW</h2>
+
+          <!-- Package cards -->
+          <div class="space-y-6">
+
+            <!-- Package 1 -->
+            <div class="bg-surface-container-lowest p-6 rounded-xl border-l-4 border-secondary shadow-sm hover:translate-x-2 transition-transform cursor-pointer group">
+              <div class="flex justify-between items-start mb-2">
+                <h3 class="font-headline font-bold text-primary text-base group-hover:text-secondary transition-colors">THE SURF &amp; SOUL RETREAT</h3>
+                <span class="font-headline font-bold text-secondary text-base shrink-0 ml-4">$1,450+</span>
+              </div>
+              <p class="font-body text-on-surface-variant text-sm leading-relaxed">7 nights of surf clinics, yoga at sunrise, and farm-to-table meals — all steps from the water.</p>
+            </div>
+
+            <!-- Package 2 -->
+            <div class="bg-surface-container-lowest p-6 rounded-xl border-l-4 border-tertiary-fixed-dim shadow-sm hover:translate-x-2 transition-transform cursor-pointer group">
+              <div class="flex justify-between items-start mb-2">
+                <h3 class="font-headline font-bold text-primary text-base group-hover:text-secondary transition-colors">VOLCANO TO VELVET WAVES</h3>
+                <span class="font-headline font-bold text-secondary text-base shrink-0 ml-4">$2,100+</span>
+              </div>
+              <p class="font-body text-on-surface-variant text-sm leading-relaxed">A 10-day adventure blending Ometepe volcano trekking with secret reef sessions and crater lake swims.</p>
+            </div>
+
+            <!-- Package 3 -->
+            <div class="bg-surface-container-lowest p-6 rounded-xl border-l-4 border-primary shadow-sm hover:translate-x-2 transition-transform cursor-pointer group">
+              <div class="flex justify-between items-start mb-2">
+                <h3 class="font-headline font-bold text-primary text-base group-hover:text-secondary transition-colors">THE CURATOR'S PRIVATE VILLA</h3>
+                <span class="font-headline font-bold text-secondary text-base shrink-0 ml-4">Custom</span>
+              </div>
+              <p class="font-body text-on-surface-variant text-sm leading-relaxed">An entirely bespoke experience — private chef, dedicated guide, boat transfers, and a beachfront villa reserved just for your crew.</p>
+            </div>
+
+          </div>
+
+          <!-- CTA button -->
+          <div class="mt-10">
+            <a href="#" class="inline-block bg-primary text-white font-headline font-bold text-lg px-10 py-4 rounded-lg hover:bg-primary-container transition-colors">
+              View All Packages
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Stats Bar -->
+  <div class="bg-primary-container text-white py-8">
+    <div class="max-w-7xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+      <div>
+        <div class="font-headline font-900 text-3xl text-secondary-container">12+</div>
+        <div class="font-label font-500 text-sm text-secondary-fixed/70 mt-1">Break Destinations</div>
+      </div>
+      <div>
+        <div class="font-headline font-900 text-3xl text-secondary-container">300+</div>
+        <div class="font-label font-500 text-sm text-secondary-fixed/70 mt-1">Surf Days / Year</div>
+      </div>
+      <div>
+        <div class="font-headline font-900 text-3xl text-secondary-container">4–8ft</div>
+        <div class="font-label font-500 text-sm text-secondary-fixed/70 mt-1">Average Swell</div>
+      </div>
+      <div>
+        <div class="font-headline font-900 text-3xl text-secondary-container">28°C</div>
+        <div class="font-label font-500 text-sm text-secondary-fixed/70 mt-1">Water Temperature</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Destinations -->
+  <section id="destinations" class="py-24 bg-surface-container-low">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-14">
+        <div>
+          <p class="font-label font-600 text-secondary text-sm tracking-widest uppercase mb-3">Where to Go</p>
+          <h2 class="font-headline font-800 text-4xl md:text-5xl text-primary leading-tight">Featured<br />Destinations</h2>
+        </div>
+        <a href="#" class="inline-flex items-center gap-1.5 font-label font-600 text-secondary text-sm hover:text-primary transition-colors self-start md:self-auto">
+          View all destinations
+          <span class="material-symbols-outlined text-base">arrow_forward</span>
+        </a>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-6">
+        <!-- Card 1 -->
+        <article class="group bg-surface-container-lowest rounded-xl overflow-hidden border border-outline-variant/40 hover:shadow-xl hover:shadow-primary/10 transition-all duration-300">
+          <div class="relative h-56 overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1505459668311-8dfac7952bf0?w=800&auto=format&fit=crop" alt="Popoyo" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+            <div class="absolute top-4 left-4">
+              <span class="bg-tertiary-fixed-dim text-on-tertiary-fixed font-label font-700 text-xs px-3 py-1 rounded-full">Expert</span>
+            </div>
+          </div>
+          <div class="p-6">
+            <div class="flex items-center gap-1.5 text-on-surface-variant font-label text-xs mb-2">
+              <span class="material-symbols-outlined text-sm">location_on</span>
+              Rivas Department
+            </div>
+            <h3 class="font-headline font-700 text-xl text-primary mb-2">Popoyo</h3>
+            <p class="font-body text-sm text-on-surface-variant leading-relaxed mb-5">A world-class right-hand point break with powerful barrels. Best for advanced surfers chasing a serious ride.</p>
+            <div class="flex items-center justify-between">
+              <div>
+                <span class="font-label font-700 text-primary text-lg">from $1,200</span>
+                <span class="font-label text-xs text-on-surface-variant"> / week</span>
+              </div>
+              <a href="#" class="inline-flex items-center gap-1 font-label font-600 text-sm text-secondary hover:text-primary transition-colors">
+                Details
+                <span class="material-symbols-outlined text-base">chevron_right</span>
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Card 2 — Featured -->
+        <article class="group bg-primary rounded-xl overflow-hidden shadow-2xl shadow-primary/30 md:scale-105 border border-primary-container">
+          <div class="relative h-56 overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1502680390469-be75c86b636f?w=800&auto=format&fit=crop" alt="San Juan del Sur" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+            <div class="absolute top-4 left-4">
+              <span class="bg-secondary-container text-on-secondary-fixed font-label font-700 text-xs px-3 py-1 rounded-full">Most Popular</span>
+            </div>
+          </div>
+          <div class="p-6">
+            <div class="flex items-center gap-1.5 text-secondary-fixed/70 font-label text-xs mb-2">
+              <span class="material-symbols-outlined text-sm">location_on</span>
+              Rivas Department
+            </div>
+            <h3 class="font-headline font-700 text-xl text-white mb-2">San Juan del Sur</h3>
+            <p class="font-body text-sm text-secondary-fixed/80 leading-relaxed mb-5">A vibrant bay with breaks for every level. Lively nightlife, fresh seafood, and epic sunsets included.</p>
+            <div class="flex items-center justify-between">
+              <div>
+                <span class="font-label font-700 text-secondary-container text-lg">from $950</span>
+                <span class="font-label text-xs text-secondary-fixed/60"> / week</span>
+              </div>
+              <a href="#" class="inline-flex items-center gap-1 font-label font-600 text-sm text-secondary-container hover:text-white transition-colors">
+                Details
+                <span class="material-symbols-outlined text-base">chevron_right</span>
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Card 3 -->
+        <article class="group bg-surface-container-lowest rounded-xl overflow-hidden border border-outline-variant/40 hover:shadow-xl hover:shadow-primary/10 transition-all duration-300">
+          <div class="relative h-56 overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1455729552865-3658a5d39692?w=800&auto=format&fit=crop" alt="Playa Maderas" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+            <div class="absolute top-4 left-4">
+              <span class="bg-secondary-fixed text-on-secondary-fixed font-label font-700 text-xs px-3 py-1 rounded-full">Beginner-Friendly</span>
+            </div>
+          </div>
+          <div class="p-6">
+            <div class="flex items-center gap-1.5 text-on-surface-variant font-label text-xs mb-2">
+              <span class="material-symbols-outlined text-sm">location_on</span>
+              Near San Juan del Sur
+            </div>
+            <h3 class="font-headline font-700 text-xl text-primary mb-2">Playa Maderas</h3>
+            <p class="font-body text-sm text-on-surface-variant leading-relaxed mb-5">Consistent beach break with forgiving waves. A perfect intro to Nicaraguan surf, nestled in a jungle-backed cove.</p>
+            <div class="flex items-center justify-between">
+              <div>
+                <span class="font-label font-700 text-primary text-lg">from $780</span>
+                <span class="font-label text-xs text-on-surface-variant"> / week</span>
+              </div>
+              <a href="#" class="inline-flex items-center gap-1 font-label font-600 text-sm text-secondary hover:text-primary transition-colors">
+                Details
+                <span class="material-symbols-outlined text-base">chevron_right</span>
+              </a>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Experiences -->
+  <section id="experiences" class="py-24 bg-surface">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="text-center max-w-2xl mx-auto mb-16">
+        <p class="font-label font-600 text-secondary text-sm tracking-widest uppercase mb-3">What We Offer</p>
+        <h2 class="font-headline font-800 text-4xl md:text-5xl text-primary leading-tight mb-5">Curated Experiences</h2>
+        <p class="font-body text-on-surface-variant leading-relaxed">Every trip is built around you — your level, your pace, and your idea of the perfect surf escape.</p>
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-5">
+        <div class="bg-surface-container-low rounded-xl p-7 border border-outline-variant/30 hover:border-secondary/30 hover:bg-secondary-fixed/10 transition-all duration-200">
+          <div class="w-12 h-12 bg-secondary/10 rounded-xl flex items-center justify-center mb-5">
+            <span class="material-symbols-outlined text-secondary text-2xl">school</span>
+          </div>
+          <h3 class="font-headline font-700 text-lg text-primary mb-2">Surf Clinics</h3>
+          <p class="font-body text-sm text-on-surface-variant leading-relaxed">Small-group lessons with ISA-certified local instructors. Beginner to intermediate.</p>
+        </div>
+        <div class="bg-surface-container-low rounded-xl p-7 border border-outline-variant/30 hover:border-secondary/30 hover:bg-secondary-fixed/10 transition-all duration-200">
+          <div class="w-12 h-12 bg-secondary/10 rounded-xl flex items-center justify-center mb-5">
+            <span class="material-symbols-outlined text-secondary text-2xl">explore</span>
+          </div>
+          <h3 class="font-headline font-700 text-lg text-primary mb-2">Secret Spots</h3>
+          <p class="font-body text-sm text-on-surface-variant leading-relaxed">Guided boat trips to breaks only locals know. No crowds, all swell.</p>
+        </div>
+        <div class="bg-surface-container-low rounded-xl p-7 border border-outline-variant/30 hover:border-secondary/30 hover:bg-secondary-fixed/10 transition-all duration-200">
+          <div class="w-12 h-12 bg-secondary/10 rounded-xl flex items-center justify-center mb-5">
+            <span class="material-symbols-outlined text-secondary text-2xl">photo_camera</span>
+          </div>
+          <h3 class="font-headline font-700 text-lg text-primary mb-2">Photo & Video</h3>
+          <p class="font-body text-sm text-on-surface-variant leading-relaxed">In-water photographers capture your best waves. Edited reels delivered within 24 hours.</p>
+        </div>
+        <div class="bg-surface-container-low rounded-xl p-7 border border-outline-variant/30 hover:border-secondary/30 hover:bg-secondary-fixed/10 transition-all duration-200">
+          <div class="w-12 h-12 bg-secondary/10 rounded-xl flex items-center justify-center mb-5">
+            <span class="material-symbols-outlined text-secondary text-2xl">hotel</span>
+          </div>
+          <h3 class="font-headline font-700 text-lg text-primary mb-2">Surf & Stay</h3>
+          <p class="font-body text-sm text-on-surface-variant leading-relaxed">Boutique eco-lodges and beachfront villas paired with daily surf scheduling.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Surf Guides -->
+  <section id="guides" class="py-24 bg-primary">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-14">
+        <div>
+          <p class="font-label font-600 text-secondary-container text-sm tracking-widest uppercase mb-3">Your Crew</p>
+          <h2 class="font-headline font-800 text-4xl md:text-5xl text-white leading-tight">Local Surf Guides</h2>
+        </div>
+        <p class="font-body text-secondary-fixed/70 text-sm max-w-xs leading-relaxed">Born and raised on these shores — our guides know every ripple of this coastline.</p>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-6">
+        <div class="bg-primary-container rounded-xl overflow-hidden border border-white/10 group">
+          <div class="relative h-72 overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=600&auto=format&fit=crop&q=80" alt="Guide Marta" loading="lazy" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500" />
+          </div>
+          <div class="p-6">
+            <h3 class="font-headline font-700 text-lg text-white mb-0.5">Marta Castillo</h3>
+            <p class="font-label font-500 text-secondary-container text-sm mb-3">Popoyo & Santana Specialist</p>
+            <div class="flex gap-2 flex-wrap">
+              <span class="bg-secondary/20 text-secondary-fixed font-label text-xs px-2.5 py-1 rounded-full">Advanced</span>
+              <span class="bg-secondary/20 text-secondary-fixed font-label text-xs px-2.5 py-1 rounded-full">ISA Certified</span>
+              <span class="bg-secondary/20 text-secondary-fixed font-label text-xs px-2.5 py-1 rounded-full">12 yrs exp.</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-primary-container rounded-xl overflow-hidden border border-white/10 group">
+          <div class="relative h-72 overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=600&auto=format&fit=crop&q=80" alt="Guide Diego" loading="lazy" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500" />
+          </div>
+          <div class="p-6">
+            <h3 class="font-headline font-700 text-lg text-white mb-0.5">Diego Reyes</h3>
+            <p class="font-label font-500 text-secondary-container text-sm mb-3">San Juan del Sur Guide</p>
+            <div class="flex gap-2 flex-wrap">
+              <span class="bg-secondary/20 text-secondary-fixed font-label text-xs px-2.5 py-1 rounded-full">All Levels</span>
+              <span class="bg-secondary/20 text-secondary-fixed font-label text-xs px-2.5 py-1 rounded-full">Bilingual</span>
+              <span class="bg-secondary/20 text-secondary-fixed font-label text-xs px-2.5 py-1 rounded-full">8 yrs exp.</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-primary-container rounded-xl overflow-hidden border border-white/10 group">
+          <div class="relative h-72 overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?w=600&auto=format&fit=crop&q=80" alt="Guide Sofia" loading="lazy" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500" />
+          </div>
+          <div class="p-6">
+            <h3 class="font-headline font-700 text-lg text-white mb-0.5">Sofía Herrera</h3>
+            <p class="font-label font-500 text-secondary-container text-sm mb-3">Playa Maderas Instructor</p>
+            <div class="flex gap-2 flex-wrap">
+              <span class="bg-secondary/20 text-secondary-fixed font-label text-xs px-2.5 py-1 rounded-full">Beginners</span>
+              <span class="bg-secondary/20 text-secondary-fixed font-label text-xs px-2.5 py-1 rounded-full">Videographer</span>
+              <span class="bg-secondary/20 text-secondary-fixed font-label text-xs px-2.5 py-1 rounded-full">6 yrs exp.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section class="py-24 bg-surface-container-low">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="text-center mb-14">
+        <p class="font-label font-600 text-secondary text-sm tracking-widest uppercase mb-3">Surf Stories</p>
+        <h2 class="font-headline font-800 text-4xl md:text-5xl text-primary">What Guests Say</h2>
+      </div>
+      <div class="grid md:grid-cols-3 gap-6">
+        <blockquote class="bg-surface-container-lowest rounded-xl p-8 border border-outline-variant/30">
+          <div class="flex gap-0.5 mb-5">
+            <span class="material-symbols-outlined text-tertiary-fixed-dim text-lg">star</span>
+            <span class="material-symbols-outlined text-tertiary-fixed-dim text-lg">star</span>
+            <span class="material-symbols-outlined text-tertiary-fixed-dim text-lg">star</span>
+            <span class="material-symbols-outlined text-tertiary-fixed-dim text-lg">star</span>
+            <span class="material-symbols-outlined text-tertiary-fixed-dim text-lg">star</span>
+          </div>
+          <p class="font-body text-on-surface-variant leading-relaxed mb-6">"Popoyo blew my mind. Marta took me to a secret right I'll be dreaming about for years. Coastal Curator made the whole trip effortless."</p>
+          <footer class="flex items-center gap-3">
+            <div class="w-10 h-10 bg-secondary-fixed rounded-full flex items-center justify-center font-headline font-700 text-primary text-sm">JT</div>
+            <div>
+              <div class="font-label font-700 text-on-surface text-sm">Jake T.</div>
+              <div class="font-label text-xs text-on-surface-variant">Portland, OR</div>
+            </div>
+          </footer>
+        </blockquote>
+
+        <blockquote class="bg-surface-container-lowest rounded-xl p-8 border border-outline-variant/30">
+          <div class="flex gap-0.5 mb-5">
+            <span class="material-symbols-outlined text-tertiary-fixed-dim text-lg">star</span>
+            <span class="material-symbols-outlined text-tertiary-fixed-dim text-lg">star</span>
+            <span class="material-symbols-outlined text-tertiary-fixed-dim text-lg">star</span>
+            <span class="material-symbols-outlined text-tertiary-fixed-dim text-lg">star</span>
+            <span class="material-symbols-outlined text-tertiary-fixed-dim text-lg">star</span>
+          </div>
+          <p class="font-body text-on-surface-variant leading-relaxed mb-6">"As a total beginner I was nervous, but Sofía was incredible. By day three I was actually riding waves. The video package was worth every penny."</p>
+          <footer class="flex items-center gap-3">
+            <div class="w-10 h-10 bg-secondary-fixed rounded-full flex items-center justify-center font-headline font-700 text-primary text-sm">AL</div>
+            <div>
+              <div class="font-label font-700 text-on-surface text-sm">Amara L.</div>
+              <div class="font-label text-xs text-on-surface-variant">London, UK</div>
+            </div>
+          </footer>
+        </blockquote>
+
+        <blockquote class="bg-surface-container-lowest rounded-xl p-8 border border-outline-variant/30">
+          <div class="flex gap-0.5 mb-5">
+            <span class="material-symbols-outlined text-tertiary-fixed-dim text-lg">star</span>
+            <span class="material-symbols-outlined text-tertiary-fixed-dim text-lg">star</span>
+            <span class="material-symbols-outlined text-tertiary-fixed-dim text-lg">star</span>
+            <span class="material-symbols-outlined text-tertiary-fixed-dim text-lg">star</span>
+            <span class="material-symbols-outlined text-tertiary-fixed-dim text-lg">star</span>
+          </div>
+          <p class="font-body text-on-surface-variant leading-relaxed mb-6">"Surf + stay package was seamless. Woke up 50 meters from the water, Diego had swell forecasts ready over coffee. Best surf trip of my life."</p>
+          <footer class="flex items-center gap-3">
+            <div class="w-10 h-10 bg-secondary-fixed rounded-full flex items-center justify-center font-headline font-700 text-primary text-sm">MK</div>
+            <div>
+              <div class="font-label font-700 text-on-surface text-sm">Marco K.</div>
+              <div class="font-label text-xs text-on-surface-variant">Berlin, DE</div>
+            </div>
+          </footer>
+        </blockquote>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section id="book" class="py-28 bg-secondary relative overflow-hidden">
+    <div class="absolute inset-0 opacity-10">
+      <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <pattern id="wave-pattern" x="0" y="0" width="80" height="40" patternUnits="userSpaceOnUse">
+            <path d="M0 20 Q20 0 40 20 Q60 40 80 20" stroke="white" stroke-width="1.5" fill="none"/>
+          </pattern>
+        </defs>
+        <rect width="100%" height="100%" fill="url(#wave-pattern)"/>
+      </svg>
+    </div>
+    <div class="relative max-w-3xl mx-auto px-6 text-center">
+      <span class="material-symbols-outlined text-secondary-container text-5xl mb-6 block">surfing</span>
+      <h2 class="font-headline font-900 text-4xl md:text-6xl text-white leading-tight mb-6">Ready to drop in?</h2>
+      <p class="font-body text-secondary-fixed/80 text-lg leading-relaxed mb-10">Tell us your dates, your level, and your dream — we'll handle everything from swell forecasts to cold beers on the beach.</p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="mailto:hello@coastalcurator.co" class="inline-flex items-center justify-center gap-2 bg-white text-primary font-label font-700 px-8 py-4 rounded-full hover:bg-secondary-fixed transition-colors text-base">
+          <span class="material-symbols-outlined">mail</span>
+          Start Planning
+        </a>
+        <a href="tel:+15055550199" class="inline-flex items-center justify-center gap-2 bg-white/10 text-white border border-white/25 font-label font-700 px-8 py-4 rounded-full hover:bg-white/20 transition-colors text-base">
+          <span class="material-symbols-outlined">call</span>
+          Call Us
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer id="about" class="bg-slate-50 py-12 px-8">
+    <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
+
+      <!-- Left — brand + copyright -->
+      <div class="flex flex-col items-center md:items-start gap-1">
+        <span class="font-headline font-bold text-lg text-sky-900">Coastal Curator</span>
+        <span class="font-body text-sm text-slate-500">&copy; 2024 Coastal Curator Nicaragua. All rights reserved.</span>
+      </div>
+
+      <!-- Center — nav links -->
+      <nav class="flex flex-wrap justify-center gap-8">
+        <a href="#" class="font-body text-sm text-slate-500 hover:text-sky-700 transition-colors">Privacy Policy</a>
+        <a href="#" class="font-body text-sm text-slate-500 hover:text-sky-700 transition-colors">Terms of Service</a>
+        <a href="#guides" class="font-body text-sm text-slate-500 hover:text-sky-700 transition-colors">Local Guides</a>
+        <a href="#" class="font-body text-sm text-slate-500 hover:text-sky-700 transition-colors">Weather Reports</a>
+      </nav>
+
+      <!-- Right — icon buttons -->
+      <div class="flex items-center gap-3">
+        <a href="#" aria-label="Share" class="w-10 h-10 rounded-full bg-slate-100 flex items-center justify-center text-sky-900 hover:bg-sky-900 hover:text-white transition-all">
+          <span class="material-symbols-outlined text-[18px]">share</span>
+        </a>
+        <a href="mailto:hello@coastalcurator.co" aria-label="Email" class="w-10 h-10 rounded-full bg-slate-100 flex items-center justify-center text-sky-900 hover:bg-sky-900 hover:text-white transition-all">
+          <span class="material-symbols-outlined text-[18px]">mail</span>
+        </a>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- Mobile Bottom Nav -->
+  <nav class="md:hidden fixed bottom-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-lg border-t border-slate-200 flex justify-around items-center py-3 px-4 shadow-2xl">
+
+    <!-- Home (active) -->
+    <a href="index.html" class="flex flex-col items-center gap-1 text-sky-700">
+      <span class="material-symbols-outlined text-2xl" style="font-variation-settings: 'FILL' 1">home</span>
+      <span class="text-[10px] font-bold uppercase">Home</span>
+    </a>
+
+    <!-- Spots -->
+    <a href="destinations.html" class="flex flex-col items-center gap-1 text-slate-400 hover:text-sky-700 transition-colors">
+      <span class="material-symbols-outlined text-2xl">waves</span>
+      <span class="text-[10px] font-bold uppercase">Spots</span>
+    </a>
+
+    <!-- Center FAB -->
+    <div class="flex flex-col items-center gap-1">
+      <a href="contact.html" class="relative -top-6 bg-primary text-white w-14 h-14 rounded-full shadow-lg flex items-center justify-center hover:bg-primary-container transition-colors">
+        <span class="material-symbols-outlined text-2xl">add_shopping_cart</span>
+      </a>
+    </div>
+
+    <!-- Tours -->
+    <a href="packages.html" class="flex flex-col items-center gap-1 text-slate-400 hover:text-sky-700 transition-colors">
+      <span class="material-symbols-outlined text-2xl">surfing</span>
+      <span class="text-[10px] font-bold uppercase">Tours</span>
+    </a>
+
+    <!-- About -->
+    <a href="about.html" class="flex flex-col items-center gap-1 text-slate-400 hover:text-sky-700 transition-colors">
+      <span class="material-symbols-outlined text-2xl">account_circle</span>
+      <span class="text-[10px] font-bold uppercase">About</span>
+    </a>
+
+  </nav>
+
+</body>
+</html>

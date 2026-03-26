@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Destinations — Coastal Curator</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Epilogue:wght@400;700;800;900&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#00263f',
+            'primary-container': '#0b3c5d',
+            secondary: '#006689',
+            'secondary-container': '#6eceff',
+            'secondary-fixed': '#c2e8ff',
+            'on-secondary-fixed': '#001e2c',
+            'tertiary-fixed-dim': '#7ed99e',
+            'on-tertiary-fixed': '#00210f',
+            surface: '#fcf9f8',
+            'surface-container-low': '#f6f3f2',
+            'surface-container': '#f0eded',
+            'surface-container-high': '#eae7e7',
+            'surface-container-highest': '#e4e2e1',
+            'surface-container-lowest': '#ffffff',
+            'on-surface': '#1b1c1c',
+            'on-surface-variant': '#42474e',
+            'outline-variant': '#c2c7ce',
+          },
+          fontFamily: {
+            headline: ['Epilogue', 'sans-serif'],
+            body: ['Manrope', 'sans-serif'],
+            label: ['Manrope', 'sans-serif'],
+          },
+          borderRadius: {
+            DEFAULT: '0.125rem',
+            lg: '0.25rem',
+            xl: '0.5rem',
+            full: '0.75rem',
+          },
+        },
+      },
+    };
+  </script>
+
+  <style>
+    .glass-nav { backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); }
+    .hero-gradient { background: linear-gradient(to bottom, rgba(0,38,63,0.4), rgba(0,38,63,0.85)); }
+  </style>
+</head>
+<body class="bg-surface text-on-surface font-body selection:bg-secondary-container selection:text-on-secondary-fixed">
+
+  <!-- Navigation -->
+  <header class="glass-nav fixed top-0 left-0 right-0 z-50 bg-primary/80 border-b border-white/10">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+      <a href="index.html" class="flex items-center gap-2">
+        <span class="material-symbols-outlined text-secondary-container text-3xl">waves</span>
+        <span class="font-headline font-900 text-xl text-white tracking-tight">Coastal Nicaragua</span>
+      </a>
+      <nav class="hidden md:flex items-center gap-8">
+        <a href="index.html" class="font-label font-500 text-sm text-secondary-fixed hover:text-white transition-colors">Home</a>
+        <a href="packages.html" class="font-label font-500 text-sm text-secondary-fixed hover:text-white transition-colors">Tour Packages</a>
+        <a href="destinations.html" class="font-label font-500 text-sm text-white border-b-2 border-sky-700 pb-1 transition-colors">Destinations</a>
+        <a href="about.html" class="font-label font-500 text-sm text-secondary-fixed hover:text-white transition-colors">About Us</a>
+        <a href="contact.html" class="font-label font-500 text-sm text-secondary-fixed hover:text-white transition-colors">Contact</a>
+      </nav>
+      <a href="contact.html" class="hidden md:inline-flex items-center gap-2 bg-secondary-container text-on-secondary-fixed font-label font-700 text-sm px-5 py-2.5 rounded-full hover:bg-secondary-fixed transition-colors">
+        <span class="material-symbols-outlined text-base">surfing</span>
+        Book a Trip
+      </a>
+      <button class="md:hidden text-white">
+        <span class="material-symbols-outlined">menu</span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Page Hero -->
+  <section class="relative h-[480px] overflow-hidden">
+    <img
+      src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1600&auto=format&fit=crop"
+      alt="Nicaragua coastline"
+      class="absolute inset-0 w-full h-full object-cover"
+    />
+    <div class="hero-gradient absolute inset-0"></div>
+    <div class="relative z-10 max-w-7xl mx-auto px-6 pt-20 h-full flex flex-col justify-center">
+      <span class="inline-block self-start bg-tertiary-fixed-dim text-on-tertiary-fixed text-xs font-bold tracking-widest uppercase px-4 py-1.5 rounded-full mb-5">
+        EXPLORE NICARAGUA
+      </span>
+      <h1 class="font-headline font-black text-white text-5xl md:text-6xl leading-[0.95] tracking-tight">
+        DESTINATIONS
+      </h1>
+    </div>
+  </section>
+
+  <!-- Intro Text -->
+  <section class="bg-surface py-16">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="grid md:grid-cols-2 gap-12 items-center">
+        <div>
+          <p class="font-body text-lg text-on-surface-variant leading-relaxed mb-6">
+            Beyond surfing, Nicaragua offers beautiful landscapes, rich culture, and unique travel experiences. From coastal towns to scenic views, there's more to explore outside the water.
+          </p>
+          <p class="font-body text-lg text-on-surface-variant leading-relaxed">
+            Take time to enjoy the environment, local food, and culture while making the most of your trip.
+          </p>
+        </div>
+        <div class="flex flex-wrap gap-3">
+          <span class="inline-flex items-center gap-2 bg-secondary-fixed/30 text-primary font-label font-600 text-sm px-4 py-2 rounded-full">
+            <span class="material-symbols-outlined text-secondary text-base">restaurant</span> Local Food
+          </span>
+          <span class="inline-flex items-center gap-2 bg-secondary-fixed/30 text-primary font-label font-600 text-sm px-4 py-2 rounded-full">
+            <span class="material-symbols-outlined text-secondary text-base">forest</span> Jungle Walks
+          </span>
+          <span class="inline-flex items-center gap-2 bg-secondary-fixed/30 text-primary font-label font-600 text-sm px-4 py-2 rounded-full">
+            <span class="material-symbols-outlined text-secondary text-base">volcanic_eruption</span> Volcanoes
+          </span>
+          <span class="inline-flex items-center gap-2 bg-secondary-fixed/30 text-primary font-label font-600 text-sm px-4 py-2 rounded-full">
+            <span class="material-symbols-outlined text-secondary text-base">waves</span> Pacific Surf
+          </span>
+          <span class="inline-flex items-center gap-2 bg-secondary-fixed/30 text-primary font-label font-600 text-sm px-4 py-2 rounded-full">
+            <span class="material-symbols-outlined text-secondary text-base">photo_camera</span> Scenic Views
+          </span>
+          <span class="inline-flex items-center gap-2 bg-secondary-fixed/30 text-primary font-label font-600 text-sm px-4 py-2 rounded-full">
+            <span class="material-symbols-outlined text-secondary text-base">celebration</span> Local Culture
+          </span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Surf Breaks -->
+  <section class="bg-surface-container-low py-16">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="flex justify-between items-end mb-10">
+        <div>
+          <h2 class="font-headline font-black text-3xl md:text-4xl text-primary tracking-tighter">LEGENDARY BREAKS</h2>
+          <p class="font-body text-on-surface-variant mt-2 max-w-md">World-class waves across Nicaragua's Pacific coast.</p>
+        </div>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-6 mb-6">
+        <!-- Popoyo -->
+        <article class="group bg-surface-container-lowest rounded-xl overflow-hidden border border-outline-variant/40 hover:shadow-xl hover:shadow-primary/10 transition-all duration-300">
+          <div class="relative h-56 overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1455729552865-3658a5d39692?w=800&auto=format&fit=crop" alt="Popoyo" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+            <div class="absolute top-4 left-4">
+              <span class="bg-tertiary-fixed-dim text-on-tertiary-fixed font-label font-700 text-xs px-3 py-1 rounded-full">Expert</span>
+            </div>
+          </div>
+          <div class="p-6">
+            <div class="flex items-center gap-1.5 text-on-surface-variant font-label text-xs mb-2">
+              <span class="material-symbols-outlined text-sm">location_on</span> Rivas Department
+            </div>
+            <h3 class="font-headline font-700 text-xl text-primary mb-2">Popoyo</h3>
+            <p class="font-body text-sm text-on-surface-variant leading-relaxed mb-4">A world-class right-hand point break with powerful barrels. Best for advanced surfers chasing a serious ride.</p>
+            <a href="contact.html" class="font-label font-600 text-sm text-secondary hover:text-primary transition-colors inline-flex items-center gap-1">
+              Book a Trip <span class="material-symbols-outlined text-base">chevron_right</span>
+            </a>
+          </div>
+        </article>
+
+        <!-- San Juan del Sur -->
+        <article class="group bg-surface-container-lowest rounded-xl overflow-hidden border border-outline-variant/40 hover:shadow-xl hover:shadow-primary/10 transition-all duration-300">
+          <div class="relative h-56 overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1502680390469-be75c86b636f?w=800&auto=format&fit=crop" alt="San Juan del Sur" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+            <div class="absolute top-4 left-4">
+              <span class="bg-secondary-container text-on-secondary-fixed font-label font-700 text-xs px-3 py-1 rounded-full">All Levels</span>
+            </div>
+          </div>
+          <div class="p-6">
+            <div class="flex items-center gap-1.5 text-on-surface-variant font-label text-xs mb-2">
+              <span class="material-symbols-outlined text-sm">location_on</span> Rivas Department
+            </div>
+            <h3 class="font-headline font-700 text-xl text-primary mb-2">San Juan del Sur</h3>
+            <p class="font-body text-sm text-on-surface-variant leading-relaxed mb-4">A vibrant bay with breaks for every level. Lively scene, fresh seafood, and epic sunsets included.</p>
+            <a href="contact.html" class="font-label font-600 text-sm text-secondary hover:text-primary transition-colors inline-flex items-center gap-1">
+              Book a Trip <span class="material-symbols-outlined text-base">chevron_right</span>
+            </a>
+          </div>
+        </article>
+
+        <!-- Playa Maderas -->
+        <article class="group bg-surface-container-lowest rounded-xl overflow-hidden border border-outline-variant/40 hover:shadow-xl hover:shadow-primary/10 transition-all duration-300">
+          <div class="relative h-56 overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1505459668311-8dfac7952bf0?w=800&auto=format&fit=crop" alt="Playa Maderas" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+            <div class="absolute top-4 left-4">
+              <span class="bg-secondary-fixed text-on-secondary-fixed font-label font-700 text-xs px-3 py-1 rounded-full">Beginner-Friendly</span>
+            </div>
+          </div>
+          <div class="p-6">
+            <div class="flex items-center gap-1.5 text-on-surface-variant font-label text-xs mb-2">
+              <span class="material-symbols-outlined text-sm">location_on</span> Near San Juan del Sur
+            </div>
+            <h3 class="font-headline font-700 text-xl text-primary mb-2">Playa Maderas</h3>
+            <p class="font-body text-sm text-on-surface-variant leading-relaxed mb-4">Consistent beach break with forgiving waves. A perfect intro to Nicaraguan surf, nestled in a jungle-backed cove.</p>
+            <a href="contact.html" class="font-label font-600 text-sm text-secondary hover:text-primary transition-colors inline-flex items-center gap-1">
+              Book a Trip <span class="material-symbols-outlined text-base">chevron_right</span>
+            </a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Beyond Surfing -->
+  <section class="bg-surface py-16">
+    <div class="max-w-7xl mx-auto px-6">
+      <h2 class="font-headline font-black text-3xl md:text-4xl text-primary tracking-tighter mb-3">BEYOND THE WAVES</h2>
+      <p class="font-body text-on-surface-variant mb-10 max-w-xl">Nicaragua's culture and landscapes are as compelling as its surf. Here's what else awaits.</p>
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-5">
+        <div class="bg-surface-container-low rounded-xl p-7 border border-outline-variant/30 hover:border-secondary/30 transition-colors">
+          <span class="material-symbols-outlined text-secondary text-3xl mb-4 block">volcanic_eruption</span>
+          <h3 class="font-headline font-700 text-lg text-primary mb-2">Ometepe Island</h3>
+          <p class="font-body text-sm text-on-surface-variant leading-relaxed">Two volcanoes rising from Lake Nicaragua. Trek, swim, and explore a world unlike any other.</p>
+        </div>
+        <div class="bg-surface-container-low rounded-xl p-7 border border-outline-variant/30 hover:border-secondary/30 transition-colors">
+          <span class="material-symbols-outlined text-secondary text-3xl mb-4 block">restaurant</span>
+          <h3 class="font-headline font-700 text-lg text-primary mb-2">Local Cuisine</h3>
+          <p class="font-body text-sm text-on-surface-variant leading-relaxed">Fresh ceviche, grilled fish, and market-fresh produce. Nicaraguan food is as vibrant as the coast.</p>
+        </div>
+        <div class="bg-surface-container-low rounded-xl p-7 border border-outline-variant/30 hover:border-secondary/30 transition-colors">
+          <span class="material-symbols-outlined text-secondary text-3xl mb-4 block">forest</span>
+          <h3 class="font-headline font-700 text-lg text-primary mb-2">Cloud Forests</h3>
+          <p class="font-body text-sm text-on-surface-variant leading-relaxed">Hike through misty jungle, spot howler monkeys, and take in panoramic Pacific views from the ridge.</p>
+        </div>
+        <div class="bg-surface-container-low rounded-xl p-7 border border-outline-variant/30 hover:border-secondary/30 transition-colors">
+          <span class="material-symbols-outlined text-secondary text-3xl mb-4 block">nightlife</span>
+          <h3 class="font-headline font-700 text-lg text-primary mb-2">Beach Towns</h3>
+          <p class="font-body text-sm text-on-surface-variant leading-relaxed">From laid-back surf villages to lively colonial towns, Nicaragua's beach culture is warm and welcoming.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-slate-50 py-12 px-8">
+    <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
+      <div class="flex flex-col items-center md:items-start gap-1">
+        <span class="font-headline font-bold text-lg text-sky-900">Coastal Curator</span>
+        <span class="font-body text-sm text-slate-500">&copy; 2024 Coastal Curator Nicaragua. All rights reserved.</span>
+      </div>
+      <nav class="flex flex-wrap justify-center gap-8">
+        <a href="#" class="font-body text-sm text-slate-500 hover:text-sky-700 transition-colors">Privacy Policy</a>
+        <a href="#" class="font-body text-sm text-slate-500 hover:text-sky-700 transition-colors">Terms of Service</a>
+        <a href="about.html" class="font-body text-sm text-slate-500 hover:text-sky-700 transition-colors">Local Guides</a>
+        <a href="#" class="font-body text-sm text-slate-500 hover:text-sky-700 transition-colors">Weather Reports</a>
+      </nav>
+      <div class="flex items-center gap-3">
+        <a href="#" aria-label="Share" class="w-10 h-10 rounded-full bg-slate-100 flex items-center justify-center text-sky-900 hover:bg-sky-900 hover:text-white transition-all">
+          <span class="material-symbols-outlined text-[18px]">share</span>
+        </a>
+        <a href="contact.html" aria-label="Email" class="w-10 h-10 rounded-full bg-slate-100 flex items-center justify-center text-sky-900 hover:bg-sky-900 hover:text-white transition-all">
+          <span class="material-symbols-outlined text-[18px]">mail</span>
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Mobile Bottom Nav -->
+  <nav class="md:hidden fixed bottom-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-lg border-t border-slate-200 flex justify-around items-center py-3 px-4 shadow-2xl">
+    <a href="index.html" class="flex flex-col items-center gap-1 text-slate-400 hover:text-sky-700 transition-colors">
+      <span class="material-symbols-outlined text-2xl">home</span>
+      <span class="text-[10px] font-bold uppercase">Home</span>
+    </a>
+    <a href="destinations.html" class="flex flex-col items-center gap-1 text-sky-700">
+      <span class="material-symbols-outlined text-2xl" style="font-variation-settings: 'FILL' 1">waves</span>
+      <span class="text-[10px] font-bold uppercase">Spots</span>
+    </a>
+    <div class="flex flex-col items-center gap-1">
+      <a href="contact.html" class="relative -top-6 bg-primary text-white w-14 h-14 rounded-full shadow-lg flex items-center justify-center hover:bg-primary-container transition-colors">
+        <span class="material-symbols-outlined text-2xl">add_shopping_cart</span>
+      </a>
+    </div>
+    <a href="packages.html" class="flex flex-col items-center gap-1 text-slate-400 hover:text-sky-700 transition-colors">
+      <span class="material-symbols-outlined text-2xl">surfing</span>
+      <span class="text-[10px] font-bold uppercase">Tours</span>
+    </a>
+    <a href="about.html" class="flex flex-col items-center gap-1 text-slate-400 hover:text-sky-700 transition-colors">
+      <span class="material-symbols-outlined text-2xl">account_circle</span>
+      <span class="text-[10px] font-bold uppercase">About</span>
+    </a>
+  </nav>
+
+</body>
+</html>
